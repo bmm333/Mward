@@ -6,36 +6,41 @@ namespace Mward.Views
 {
     public partial class LoginPage : ContentPage
     {
-        private readonly IFirebaseAuthService _authService;
+        private readonly FirebaseAuthService _firebaseAuthService;
 
         public LoginPage()
         {
             InitializeComponent();
-            _authService = DependencyService.Get<IFirebaseAuthService>();
+            _firebaseAuthService = new FirebaseAuthService();
         }
 
-        async void OnLoginButtonClicked(object sender, EventArgs e)
+        private async void OnLoginClicked(object sender, EventArgs e)
         {
-            string email = emailEntry.Text;
-            string password = passwordEntry.Text;
-
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
-            {
-                await DisplayAlert("Error", "Please enter both email and password", "OK");
-                return;
-            }
-
+            var email = emailEntry.Text;
+            var password = passwordEntry.Text;
             try
             {
-                var token = await _authService.SignInWithEmailAndPasswordAsync(email, password);
-                await DisplayAlert("Login Success", "Token: " + token, "OK");
-
-                // Navigate to the main page or home page of your app
-                Application.Current.MainPage = new NavigationPage(new MainPage());
+                var authLink = await _firebaseAuthService.SignInWithEmailAndPasswordAsync(email, password);
+                await DisplayAlert("Login Success", $"User: {authLink.User.Email}", "OK");
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Login Failed", ex.Message, "OK");
+            }
+        }
+
+        private async void OnRegisterClicked(object sender, EventArgs e)
+        {
+            var email = emailEntry.Text;
+            var password = passwordEntry.Text;
+            try
+            {
+                var authLink = await _firebaseAuthService.RegisterWithEmailAndPasswordAsync(email, password);
+                await DisplayAlert("Registration Success", $"User: {authLink.User.Email}", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Registration Failed", ex.Message, "OK");
             }
         }
     }

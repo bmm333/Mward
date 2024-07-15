@@ -2,10 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Mward.Views.MainPage">
-    <StackLayout Padding="20">
-        <Label Text="Welcome to Smart Wardrobe" FontSize="24" HorizontalOptions="Center" />
-        <Button Text="View Wardrobe" Clicked="OnViewWardrobeClicked" />
-        <Button Text="Profile" Clicked="OnProfileClicked" />
-        <Button Text="Analytics" Clicked="OnAnalyticsClicked" />
-    </StackLayout>
+	<StackLayout Padding="20">
+		<Label Text="Welcome to Smart Wardrobe" FontSize="24" HorizontalOptions="Center" />
+		<Button Text="View Wardrobe" Clicked="OnViewWardrobeClicked" />
+		<Button Text="Profile" Clicked="OnProfileClicked" Style="{StaticResource SecondaryButtonStyle}" />
+		<Button Text="Analytics" Clicked="OnAnalyticsClicked" />
+		<Button Text="Stylist" Clicked="OnStylistClicked" />
+	</StackLayout>
 </ContentPage>

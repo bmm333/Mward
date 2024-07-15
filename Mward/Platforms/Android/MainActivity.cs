@@ -1,12 +1,21 @@
 ﻿using Android.App;
+using Android.Content.PM;
 using Android.OS;
+using Microsoft.Maui;
+using Microsoft.Maui.Hosting;
+using Microsoft.Maui.Controls.Hosting;
+using Firebase;
 
-[Activity(Label = "Mward", MainLauncher = true)]
-public class MainActivity : MauiAppCompatActivity
+namespace Mward
 {
-    protected override void OnCreate(Bundle savedInstanceState)
+    [Activity(Theme = "@style/Maui.SplashTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
+    public class MainActivity : MauiAppCompatActivity
     {
-        base.OnCreate(savedInstanceState);
-        Firebase.FirebaseApp.InitializeApp(this);
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            // Initialize Firebase
+            FirebaseApp.InitializeApp(this);
+        }
     }
 }

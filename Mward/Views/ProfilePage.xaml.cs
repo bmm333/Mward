@@ -1,4 +1,7 @@
 using Microsoft.Maui.Controls;
+using Mward.Models;
+using Mward.Services;
+using System;
 
 namespace Mward.Views
 {

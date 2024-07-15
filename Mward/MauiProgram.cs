@@ -17,8 +17,8 @@ namespace Mward
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            // Register the MongoDB service
-            builder.Services.AddSingleton<MongoDBService>();
+            // Register the FirebaseAuthService
+            builder.Services.AddSingleton<IFirebaseAuthService, FirebaseAuthService>();
 
             return builder.Build();
         }

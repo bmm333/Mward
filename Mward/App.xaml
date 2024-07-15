@@ -1,14 +1,36 @@
-﻿ using Microsoft.Maui.Controls;
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mward.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Define colors -->
+            <Color x:Key="PrimaryColor">#3498db</Color>
+            <Color x:Key="SecondaryColor">#2ecc71</Color>
+            <Color x:Key="TextColor">#34495e</Color>
 
-namespace Mward
-{
-    public partial class App : Application
-    {
-        public App()
-        {
-            InitializeComponent();
+            <!-- Define styles -->
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="FontSize" Value="18" />
+            </Style>
 
-            MainPage = new NavigationPage(new Views.LoginPage());
-        }
-    }
-}
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="Padding" Value="10,5" />
+            </Style>
+
+            <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryColor}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="Padding" Value="10,5" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

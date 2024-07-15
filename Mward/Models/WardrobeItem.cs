@@ -1,14 +1,13 @@
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-
 namespace Mward.Models
 {
     public class WardrobeItem
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public string LastWorn { get; set; }
+        public string LastWashed { get; set; }
+        public string Status { get; set; } // Available or Not Available
+        public string Preference { get; set; } // Preferred or Less Preferred
     }
 }

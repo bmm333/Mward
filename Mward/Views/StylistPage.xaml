@@ -3,8 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Mward.Views.StylistPage">
     <StackLayout Padding="20">
-        <Label Text="Personal Stylist" FontSize="24" HorizontalOptions="Center" />
-        <Button Text="Get Outfit Suggestion" Clicked="OnGetSuggestionClicked" />
-        <Label x:Name="SuggestionLabel" />
+        <Label Text="Stylist Suggestions" FontSize="24" HorizontalOptions="Center" />
+        <ListView x:Name="StylistListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Outfit}" Detail="{Binding Occasion}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Get New Suggestion" Clicked="OnGetSuggestionClicked" />
     </StackLayout>
 </ContentPage>

@@ -1,11 +1,21 @@
-﻿[Register("AppDelegate")]
-public class AppDelegate : MauiUIApplicationDelegate
-{
-    protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+﻿using Foundation;
+using Microsoft.Maui;
+using Microsoft.Maui.Hosting;
+using Microsoft.Maui.Controls.Hosting;
+using UIKit;
+using Firebase.Core;
 
-    public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+namespace Mward
+{
+    [Register("AppDelegate")]
+    public class AppDelegate : MauiUIApplicationDelegate
     {
-        Firebase.Core.App.Configure();
-        return base.FinishedLaunching(app, options);
+        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+
+        public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+        {
+            FirebaseApp.Configure();
+            return base.FinishedLaunching(application, launchOptions);
+        }
     }
 }

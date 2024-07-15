@@ -1,15 +1,22 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="Mward.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Mward"
-    Shell.FlyoutBehavior="Disabled"
-    Title="Mward">
-
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:Mward.Views"
+       x:Class="Mward.AppShell"
+       Shell.FlyoutBehavior="Flyout">
+    <FlyoutItem Title="Main Page" Icon="icon_home.png">
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Wardrobe" Icon="icon_wardrobe.png">
+        <ShellContent ContentTemplate="{DataTemplate local:WardrobePage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Profile" Icon="icon_profile.png">
+        <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Analytics" Icon="icon_analytics.png">
+        <ShellContent ContentTemplate="{DataTemplate local:AnalyticsPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Stylist" Icon="icon_stylist.png">
+        <ShellContent ContentTemplate="{DataTemplate local:StylistPage}" />
+    </FlyoutItem>
 </Shell>

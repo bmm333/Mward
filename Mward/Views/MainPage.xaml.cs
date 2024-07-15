@@ -1,5 +1,4 @@
 using Microsoft.Maui.Controls;
-using System;
 
 namespace Mward.Views
 {
@@ -23,6 +22,11 @@ namespace Mward.Views
         private async void OnAnalyticsClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AnalyticsPage());
+        }
+
+        private async void OnStylistClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new StylistPage());
         }
     }
 }
