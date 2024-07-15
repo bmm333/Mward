@@ -1,0 +1,40 @@
+# Ignore Visual Studio temporary files, build results, and
+# build directories
+*.log
+*.tlog
+*.obj
+*.tmp
+*.TMP
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.dbmdl
+*.opendb
+
+# Include if you have NuGet Packages.
+*.nupkg
+# Include if you have Node.js modules.
+node_modules/
+
+# Ignore Visual Studio .vs folder
+.vs/
+
+# Ignore build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]uild/
+
+# Exclude bin and obj folders
+bin/
+obj/
+
+# Ignore IDE specific folders
+.idea/
+.vscode/
+
+# Ignore other unnecessary files
+.DS_Store
+Thumbs.db
