@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Maui;
+using Microsoft.Maui.Hosting;
+using Mward.Services;
 
 namespace Mward
 {
@@ -15,9 +17,8 @@ namespace Mward
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-#if DEBUG
-    		builder.Logging.AddDebug();
-#endif
+            // Register the Firebase authentication service
+            builder.Services.AddSingleton<IFirebaseAuthService, FirebaseAuthService>();
 
             return builder.Build();
         }

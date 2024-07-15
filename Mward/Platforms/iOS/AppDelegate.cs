@@ -1,10 +1,11 @@
-﻿using Foundation;
-
-namespace Mward
+﻿[Register("AppDelegate")]
+public class AppDelegate : MauiUIApplicationDelegate
 {
-    [Register("AppDelegate")]
-    public class AppDelegate : MauiUIApplicationDelegate
+    protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+
+    public override bool FinishedLaunching(UIApplication app, NSDictionary options)
     {
-        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+        Firebase.Core.App.Configure();
+        return base.FinishedLaunching(app, options);
     }
 }
