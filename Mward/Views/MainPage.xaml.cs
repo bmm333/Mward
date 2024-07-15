@@ -1,5 +1,5 @@
 using Microsoft.Maui.Controls;
-using Windows.Networking.NetworkOperators;
+using System;
 
 namespace Mward.Views
 {
@@ -12,14 +12,17 @@ namespace Mward.Views
 
         private async void OnViewWardrobeClicked(object sender, EventArgs e)
         {
-            // Navigate to the Wardrobe page
             await Navigation.PushAsync(new WardrobePage());
         }
 
         private async void OnProfileClicked(object sender, EventArgs e)
         {
-            // Navigate to the Profile page
             await Navigation.PushAsync(new ProfilePage());
+        }
+
+        private async void OnAnalyticsClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AnalyticsPage());
         }
     }
 }

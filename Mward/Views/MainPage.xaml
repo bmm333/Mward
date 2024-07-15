@@ -6,5 +6,6 @@
         <Label Text="Welcome to Smart Wardrobe" FontSize="24" HorizontalOptions="Center" />
         <Button Text="View Wardrobe" Clicked="OnViewWardrobeClicked" />
         <Button Text="Profile" Clicked="OnProfileClicked" />
+        <Button Text="Analytics" Clicked="OnAnalyticsClicked" />
     </StackLayout>
 </ContentPage>

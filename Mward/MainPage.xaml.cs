@@ -1,25 +1,28 @@
-﻿namespace Mward
+﻿using Microsoft.Maui.Controls;
+using System;
+
+namespace Mward.Views
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void OnViewWardrobeClicked(object sender, EventArgs e)
         {
-            count++;
+            await Navigation.PushAsync(new WardrobePage());
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+        private async void OnProfileClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ProfilePage());
+        }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private async void OnAnalyticsClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AnalyticsPage());
         }
     }
-
 }

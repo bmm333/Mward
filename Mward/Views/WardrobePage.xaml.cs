@@ -1,28 +1,39 @@
 using Microsoft.Maui.Controls;
+using Mward.Models;
+using Mward.Services;
+using System;
 using System.Collections.ObjectModel;
 
 namespace Mward.Views
 {
     public partial class WardrobePage : ContentPage
     {
-        private ObservableCollection<string> _wardrobeItems;
+        private readonly MongoDBService _mongoDBService;
+        private ObservableCollection<WardrobeItem> _wardrobeItems;
 
         public WardrobePage()
         {
             InitializeComponent();
-            _wardrobeItems = new ObservableCollection<string>
-            {
-                "Item 1",
-                "Item 2",
-                "Item 3"
-            };
+            _mongoDBService = new MongoDBService();
+            LoadWardrobeItems();
+        }
+
+        private async void LoadWardrobeItems()
+        {
+            var items = await _mongoDBService.GetWardrobeItemsAsync();
+            _wardrobeItems = new ObservableCollection<WardrobeItem>(items);
             WardrobeListView.ItemsSource = _wardrobeItems;
         }
 
         private async void OnAddItemClicked(object sender, EventArgs e)
         {
-            // Implement adding a new item to the wardrobe
-            _wardrobeItems.Add("New Item");
+            var newItem = new WardrobeItem
+            {
+                Name = "New Item",
+                Description = "Description"
+            };
+            await _mongoDBService.SaveWardrobeItemAsync(newItem);
+            _wardrobeItems.Add(newItem);
         }
     }
 }

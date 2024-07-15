@@ -4,7 +4,8 @@
              x:Class="Mward.Views.ProfilePage">
     <StackLayout Padding="20">
         <Label Text="User Profile" FontSize="24" HorizontalOptions="Center" />
-        <!-- Add profile fields here -->
+        <Entry x:Name="nameEntry" Placeholder="Name" />
+        <Entry x:Name="emailEntry" Placeholder="Email" />
         <Button Text="Save" Clicked="OnSaveClicked" />
     </StackLayout>
 </ContentPage>

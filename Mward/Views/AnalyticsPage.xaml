@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Mward.Views.WardrobePage">
+             x:Class="Mward.Views.AnalyticsPage">
     <StackLayout Padding="20">
-        <Label Text="Your Wardrobe" FontSize="24" HorizontalOptions="Center" />
-        <ListView x:Name="WardrobeListView">
+        <Label Text="Wardrobe Analytics" FontSize="24" HorizontalOptions="Center" />
+        <ListView x:Name="AnalyticsListView">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
+                    <TextCell Text="{Binding Key}" Detail="{Binding Value}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="Add Item" Clicked="OnAddItemClicked" />
     </StackLayout>
 </ContentPage>
